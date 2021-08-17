@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Dasboard</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+
+        <h1 class="text-5xl	text-center mt-8">Welcome To <span class="text-blue-800 font-semibold">Account
+                Dashboard</span>
+            !!!
+        </h1>
+    </header>
+
+    <main class="w-3/4 mx-auto">
+        <!-- balance and Widthdraw -->
+        <section>
+            <div class="grid lg:grid-cols-3 gap-4 md:grid-cols-1 sm:grid-cols-1">
+                <div class="bg-purple-500 p-8  rounded mt-8  text-white ">
+                    <h2 class="text-2xl px-1">Deposit</h2>
+                    <h3 class="text-4xl px-1">$ <span id="depositField"> 00</span></h3>
+                </div>
+                <div class="bg-red-500 p-8  rounded mt-8 text-white">
+                    <h2 class="text-2xl">Widthdraw</h2>
+                    <h3 class="text-4xl">$ <span id="widthdrawField">00</span></h3>
+                </div>
+                <div class="bg-green-500 p-8  rounded mt-8  text-white">
+                    <h2 class="text-2xl">Balance</h2>
+                    <h3 class="text-4xl">$ <span id="balaceDashboard">00</span> </h3>
+                </div>
+
+
+            </div>
+
+        </section>
+
+        <!-- deposit and Withdraw -->
+
+        <section>
+
+            <div class="grid lg:grid-cols-2 gap-4 md:grid-cols-1 sm:grid-cols-1">
+                <!-- Deposit Section -->
+                <div class="text-2xl  rounded mt-8 bg-red-100 p-8 rounded sm:w-full">
+                    <h2>Please input deposit Ammount</h2>
+
+                    <input id="addMoney" class="w-3/4 border border-gray-400 block rounded mb-4 px-2" type="text"
+                        placeholder="Enter The Ammout">
+                    <button id="addMoneyBtn" class="bg-green-400 p-3 rounded-2xl ">
+                        <h6>Deposit</h6>
+                    </button>
+                </div>
+                <!-- Widthdraw section -->
+                <div class="text-2xl  rounded mt-8 bg-yellow-100 p-8 rounded">
+                    <h2>Please Enter Widthdraw Ammount</h2>
+
+                    <input id="moneyOut" class="w-3/4 border border-gray-400 block rounded mb-4 px-2" type="text"
+                        placeholder="Enter the Ammout">
+                    <button id="moneyOutBtn" class="bg-pink-400 p-3 rounded-2xl text-xl">
+                        <h6>Widthdraw</h6>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <!-- java script  -->
+    <script src="js/bank.js"></script>
+</body>
+
+</html>
