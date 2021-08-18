@@ -1,8 +1,8 @@
 var balance = 0;
 
-function getInputValue() {
+function getInputValue(value) {
     //geting all info of dposit input field on variable inputValueDesposit
-    const inputValueDeposit = document.getElementById("addMoney");
+    const inputValueDeposit = document.getElementById(value);
     //geting user inputed value from deposit input field and converted it to float
     const inputValueDepositFloat = parseFloat(inputValueDeposit.value);
     //clearing input value filed of deposit ammount
@@ -14,64 +14,65 @@ function getInputValue() {
 
 }
 
+function updateDepoWidth(fieldname, ammount) {
+    const dipositDisplay = document.getElementById(fieldname);
+    const iniDeposit = document.getElementById(fieldname);
+    const iniDepositFloat = parseFloat(iniDeposit.innerText);
+    const finalDeposit = ammount + iniDepositFloat;
+
+    dipositDisplay.innerText = finalDeposit.toFixed(2);
+
+}
+
+function balanceUpdate(inputdepo, isTrue) {
+
+    const initialBalance = document.getElementById("balaceDashboard");
+    //converting the Initial value to float 
+    const initialBalanceFloat = parseFloat(initialBalance.innerText);
+    //linking up balace with deposit
+
+    if (isTrue == true) {
+        const totalBalance = initialBalanceFloat + inputdepo;
+        initialBalance.innerText = totalBalance.toFixed(2);
+        balance = totalBalance;
+    }
+    else {
+        const totalBalance = initialBalanceFloat - inputdepo;
+        initialBalance.innerText = totalBalance.toFixed(2);
+        balance = totalBalance;
+
+
+    }
 
 
 
+
+}
 
 //Deposit Section
 //add event listener and display given value to deposit section
 const depositBtn = document.getElementById("addMoneyBtn").addEventListener("click", function () {
 
-
-    const inputValueDepositFloat = getInputValue();
-
-
-    //holding and seting display value of deposit
-    const dipositDisplay = document.getElementById("depositField");
+    const inputdepo = getInputValue("addMoney");
 
 
-    //initial deposit
-    const iniDeposit = document.getElementById("depositField");
-    const iniDepositFloat = parseFloat(iniDeposit.innerText);
-    const finalDeposit = inputValueDepositFloat + iniDepositFloat;
+    balanceUpdate(inputdepo, true);
 
-    dipositDisplay.innerText = finalDeposit.toFixed(2);
-
-
-    // balance part
-    //holdin and getting info of balaceDasboard filed in initialBalance variable
-    const initialBalance = document.getElementById("balaceDashboard");
-    //converting the Initial value to float 
-    const initialBalanceFloat = parseFloat(initialBalance.innerText);
-    //linking up balace with deposit
-    const totalBalance = initialBalanceFloat + inputValueDepositFloat;
-    initialBalance.innerText = totalBalance.toFixed(2);
-    balance = totalBalance;
 
 })
 
 //widthdrawal part
 const moneyOutBtn = document.getElementById("moneyOutBtn").addEventListener("click", function () {
 
-    //setting display and update widthdrwal dashboard
-    //geting input value from user 
-    const moneyOut = document.getElementById("moneyOut");
-    const userInputedvalue = moneyOut.value;
-    moneyOut.value = "";
-    //conver to float
-    const userInputedvalueFloat = parseFloat(userInputedvalue);
-    //geting currnet balance of widthdrwal dashboard
-    const widthdrawField = document.getElementById("widthdrawField");
-    const widthdrawalFiledInnervalue = parseFloat(widthdrawField.innerText);
-    const finalWidthdrawal = userInputedvalueFloat + widthdrawalFiledInnervalue;
-    widthdrawField.innerText = finalWidthdrawal;
 
-    //getting inner value of blance filed from display
-    const balaceDashboard = document.getElementById("balaceDashboard");
-    const balaceDasboardInner = balaceDashboard.innerText;
-    const balaceDasboardInnerFloat = parseFloat(balaceDasboardInner);
-    const finalDashboardBoardBalance = balaceDasboardInnerFloat - userInputedvalueFloat;
-    balaceDashboard.innerText = finalDashboardBoardBalance.toFixed(2);
+    //conver to float
+    const userInputedvalueFloat = getInputValue("moneyOut")
+    //geting currnet balance of widthdrwal dashboard
+    updateDepoWidth("widthdrawField", userInputedvalueFloat);
+
+    balanceUpdate(userInputedvalueFloat, false);
+
+
 
 })
 
