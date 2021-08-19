@@ -89,7 +89,7 @@ const moneyOutBtn = document.getElementById("moneyOutBtn").addEventListener("cli
 
     }
     if (currentDashboardbalance < userInputedvalueFloat) {
-        alert("Please Inser a lower value!!Input Vale must be less then Current value!!!");
+        alert("Please Input a lower value!!Input Vale must be less then Current value!!!");
     }
 
 
